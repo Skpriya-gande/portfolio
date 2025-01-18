@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+
+    <!-- CSS & Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    
+    <style>
+        body {
+            background-color: #2d2e32;
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-heading h3 {
+            color: #64FAAB;
+        }
+        .touch-heading h1 {
+            font-size: 38px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .input-container {
+            margin-top: 20px;
+        }
+        .styled-input {
+            margin-bottom: 20px;
+        }
+        .styled-input input, .styled-input textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            outline: none;
+            transition: border 0.3s;
+        }
+        .styled-input input:focus, .styled-input textarea:focus {
+            border: 2px solid #64FAAB;
+        }
+        .styled-input textarea {
+            height: 150px;
+            resize: none;
+        }
+        .conbtn {
+            background-color: #64FAAB;
+            color: #fff;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .conbtn:hover {
+            background-color: #1f8055;
+        }
+        .success-notification {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="contact-heading">
+            <h3>--Contact Me</h3>
+        </div>
+
+        <div class="touch-heading">
+            <h1>Get in touch with me</h1>
+        </div>
+
+        <div class="contact-info">
+            <div class="email-div">
+                <h3>Email:</h3>
+                <p>skpriya.agnde@gmail.com</p>
+                <p>2203a52085@sru.edu.in</p>
+            </div>
+            <div class="phone-div">
+                <h3>Phone:</h3>
+                <p>+91 9110541348</p>
+                <p>+91 9618960039</p>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="styled-input">
+                <input type="text" placeholder="Full Name" id="name" required />
+            </div>
+            <div class="styled-input">
+                <input type="email" placeholder="Email" id="email" required />
+            </div>
+            <div class="styled-input">
+                <textarea placeholder="Message" id="message" required></textarea>
+            </div>
+            <div class="conbtn" onclick="sendMessage()">Send to Me</div>
+        </div>
+
+        <div class="success-notification" id="success-notification">
+            Message sent successfully!
+        </div>
+
+    </div>
+
+    <script>
+        function sendMessage() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            if (!name || !email || !message) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            // Show success notification
+            document.getElementById("success-notification").style.display = "block";
+
+            // Clear form fields
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                document.getElementById("success-notification").style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>
